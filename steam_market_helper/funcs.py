@@ -28,6 +28,7 @@ def load_item_list_from_api(is_log: bool, is_test: bool = True) -> List[Item]:
     full_item_list = []
     market_api_response = make_api_call(URL.format("0"))
     first_item_list = parse_market_history(market_api_response)
+    full_item_list.extend(first_item_list)
     if is_test:
         return first_item_list
     total_items = market_api_response.total_items

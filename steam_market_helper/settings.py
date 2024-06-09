@@ -8,7 +8,7 @@ class Settings(BaseSettings):
 
 settings = Settings()
 
-URL = "https://steamcommunity.com/market/myhistory/render/?query=&start=3260&count=10"
+URL = "https://steamcommunity.com/market/myhistory/render/?query=&start={}&count=10"
 HEADERS = {
     "Accept": "text/javascript, text/html, application/xml, text/xml, */*",
     "Accept-Encoding": "gzip, deflate, br, zstd",

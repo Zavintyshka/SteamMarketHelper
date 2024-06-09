@@ -1,11 +1,9 @@
-from steam_market_helper import make_api_call, parse_market_history
+from steam_market_helper import funcs
 
 
 def main():
-    market_api_response = make_api_call()
-    print(f"Total items: {market_api_response.total_items}")
-    items = parse_market_history(market_api_response)
-    print(len(items), items)
+    total_cost = sum(item.price for item in funcs.load_item_list_from_json("./full_item.json"))
+    print(total_cost)
 
 
 if __name__ == "__main__":

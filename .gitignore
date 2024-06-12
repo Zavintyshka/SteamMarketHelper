@@ -1,7 +1,10 @@
 .idea/
 venv/
 data/
+smh/
 __pycache__/
 .env
 *.json
 *.html
+item_list_pprint.py
+some.txt

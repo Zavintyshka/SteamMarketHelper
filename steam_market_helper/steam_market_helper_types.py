@@ -5,7 +5,20 @@ Item = namedtuple("Item", ["cell_data_type", "item_name", "item_type", "listed_o
 MarketApiResponse = namedtuple("MarketApiResponse", ["html_page", "total_items"])
 
 
-class CellDataType(Enum):
+class TransactionType(Enum):
     sale = "sale"
     purchase = "purchase"
     listing = "listing"
+    all = "all"
+
+
+class OrderType(Enum):
+    desc = "desc"
+    asc = "asc"
+
+
+class FilterType(Enum):
+    item_name = "item_name"
+    item_type = "item_type"
+    price = "price"
+    no_filter = "no_filter"

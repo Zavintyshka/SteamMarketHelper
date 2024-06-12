@@ -1,6 +1,6 @@
 from typing import List
 from bs4 import BeautifulSoup
-from .steam_market_helper_types import Item, MarketApiResponse, CellDataType
+from .steam_market_helper_types import Item, MarketApiResponse, TransactionType
 
 
 def parse_market_history(api_response: MarketApiResponse) -> List[Item]:
@@ -12,11 +12,11 @@ def parse_market_history(api_response: MarketApiResponse) -> List[Item]:
         cell_type = item.find(class_="market_listing_left_cell market_listing_gainorloss").text.strip()
         match cell_type:
             case "-":
-                cell_data_type = CellDataType.sale.value
+                cell_data_type = TransactionType.sale.value
             case "+":
-                cell_data_type = CellDataType.purchase.value
+                cell_data_type = TransactionType.purchase.value
             case _:
-                cell_data_type = CellDataType.listing.value
+                cell_data_type = TransactionType.listing.value
         item_name = item.find(class_="market_listing_item_name").text
         item_type = item.find(class_="market_listing_game_name").text
         date_combine = item.find_all(class_="market_listing_right_cell market_listing_listed_date can_combine")

@@ -1,6 +1,5 @@
 from typing import List
 from .steam_market_helper_types import Item, TransactionType, FilterType, OrderType
-from .funcs import get_item_list
 
 
 def get_sorted_item_list(item_list: List[Item], transaction: str, filter: str, order: str) -> List[Item]:
@@ -17,7 +16,7 @@ def get_item_list_by_transaction_type(item_list: List[Item], transaction_type: T
     tt = transaction_type.value
     if tt == "all":
         return item_list
-    return list(filter(lambda item: item.cell_data_type == tt, item_list))
+    return list(filter(lambda item: item.transaction_type == tt, item_list))
 
 
 def get_filtered_item_list(item_list: List[Item], filter: FilterType, order: OrderType) -> List[Item]:

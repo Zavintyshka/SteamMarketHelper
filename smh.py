@@ -1,10 +1,9 @@
-from steam_market_helper.steam_market_helper_types import TransactionType, OrderType, FilterType
-
-from steam_market_helper.funcs import *
-from steam_market_helper.filter_funcs import get_sorted_item_list
-
 from time import sleep
 import click
+
+from steam_market_helper.steam_market_helper_types import TransactionType, OrderType, FilterType
+from steam_market_helper.funcs import *
+from steam_market_helper.filter_funcs import get_sorted_item_list
 
 
 @click.command()

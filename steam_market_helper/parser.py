@@ -22,8 +22,12 @@ def parse_market_history(api_response: MarketApiResponse) -> List[Item]:
         date_combine = item.find_all(class_="market_listing_right_cell market_listing_listed_date can_combine")
         listed_on, acted_on = date_combine[1].text.strip(), date_combine[0].text.strip()
         price_row = item.find(class_="market_listing_price").text.strip()
-        price_row = price_row[:-1].replace(",", ".").split(" ") if price_row else ["0", "operation_canceled"]
-        price, currency = float(price_row[0]), price_row[1]
+        if price_row:
+            price_row = price_row[:-1].replace(",", ".").split(" ")
+            price, currency = float(price_row[0]), price_row[1]
+        else:
+            price, currency = "-", "-"
+            transaction_type = TransactionType.operation_canceled.value
 
         items.append(Item(transaction_type=transaction_type,
                           item_name=item_name,

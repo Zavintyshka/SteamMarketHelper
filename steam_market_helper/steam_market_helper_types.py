@@ -9,6 +9,7 @@ class TransactionType(Enum):
     sale = "sale"
     purchase = "purchase"
     listing = "listing"
+    operation_canceled = "operation_canceled"
     all = "all"
 
 

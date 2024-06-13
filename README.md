@@ -1,18 +1,16 @@
-Here is an improved English translation of your `README.md`:
-
----
-
 # Steam Market Helper
 
 Steam Market Helper allows you to quickly create a comprehensive table of all your transactions on the Steam
 marketplace. The generated table is saved as a JSON file, which can be used in other applications or converted into a
 different format as needed.
+<img width="1280" alt="header" src="https://github.com/Zavintyshka/SteamMarketHelper/assets/116081113/31a0f07f-00f7-49a1-8993-387f6cde34d9">
+
 
 [Link to PyPI](https://pypi.org/project/steammarkethelper/)
 
-## Setup
+# Setup
 
-### Setting Up a Virtual Environment
+## I. Setting Up a Virtual Environment
 
 To get started, install the package in a virtual environment:
 
@@ -22,7 +20,7 @@ source ./venv/bin/activate
 (venv) pip install steammarkethelper 
 ```
 
-### I. Setting Up Cookies
+### Setting Up Cookies
 
 To use the package, you need to set up a `cookie` in the root folder of your project in a `.env` file. The `cookie`
 contains information about your session, which is necessary to identify your account and interact with Steam's internal
@@ -41,12 +39,13 @@ Now, add the `cookie` to the `.env` file:
 cookie="your_cookie"
 ```
 
-### II. Using Steam Market Helper
+## II. Using Steam Market Helper
 
 The application provides a user-friendly CLI tool to quickly gather and process information retrieved from Steam's
 servers.
 
-#### Initializing Data
+### Initializing Data
+<img width="767" alt="init" src="https://github.com/Zavintyshka/SteamMarketHelper/assets/116081113/b2e0652a-43d4-4b11-a6f0-350681c9860d">
 
 To initialize the data, use the following command:
 
@@ -62,7 +61,7 @@ The `smh init` command supports several options:
   --no-log      Disable logging
 ```
 
-#### Generating the Table
+### Generating the Table
 
 To present the JSON file as a table, use the `smh getlist` command. This command formats the data into a readable table,
 allowing sorting and filtering of transaction types. Supported options include:
@@ -79,12 +78,13 @@ allowing sorting and filtering of transaction types. Supported options include:
       --stats                         Get additional statistics
 ```
 
-### III. Usage Examples
+## III. Usage Examples
 
 ```bash
 smh init ./data/my_data.json # Initialize JSON file in the current directory
 smh getlist -p ./data/my_data.json # Display the table in the terminal
 smh getlist --no-cached --test # Retrieve a small amount of data from Steam API
-smh getlist -p ./data/my_data.json -tt sale --filter price --order desc --title "My Sales" --stats > my_sales.txt
+smh getlist -p ./data/my_data.json -tt sale --filter price --order desc --title "My Recent Sales" --stats > my_sales.txt
 # Save the table to my_sales.txt, containing all sales sorted by price.
 ```
+<img width="671" alt="getlist_with_parameters" src="https://github.com/Zavintyshka/SteamMarketHelper/assets/116081113/1b2ad0f7-f88a-4069-8149-d80afc1b653b">
